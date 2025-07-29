@@ -1,0 +1,49 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* #Coming Soon */
+.top-left {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-size: 4rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Stay tuned... */
+.middle-left {
+  position: absolute;
+  top: calc(40px + 4rem + 200px); /* 200px gap below Coming Soon */
+  left: 40px;
+  font-size: 2.2rem;
+  color: white;
+  max-width: 600px;
+}
+
+/* 3D Page Not Found */
+.top-right {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.text-3d {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 1px;
+  transform: perspective(500px) rotateY(15deg);
+  text-shadow:
+    1px 1px 0 #999,
+    2px 2px 0 #888,
+    3px 3px 0 #777,
+    4px 4px 0 #666,
+    5px 5px 0 #555;
+}
