@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
 .container {
   position: relative;
   width: 100vw;
@@ -10,6 +12,16 @@
   z-index: 2;
 }
 
+.road::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* ✅ Road Animation as Background Layer */
 .road {
   position: absolute;
@@ -17,7 +29,7 @@
   left: 0;
   width: 200%;
   height: 200px;
-  background: url('/road.png') repeat-x;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/road.png') repeat-x;
   background-size: cover;
   animation: roadMove 5s linear infinite;
   z-index: 1;
@@ -35,13 +47,12 @@
 /* ✅ Car Image on Road */
 .car {
   position: absolute;
- bottom: calc(150px + 10px); /* ✅ car road ke upar properly baithi hai */
+  bottom: calc(150px + 10px);
   left: 50%;
-  transform: translateX(-50%) scaleX(-1); /* ✅ flipped */
+  transform: translateX(-50%) scaleX(-1);
   width: 140px;
   z-index: 2;
 }
-
 
 /* ✅ Foreground Content */
 .logo-wrapper,
@@ -69,9 +80,10 @@
   position: absolute;
   top: 110px;
   left: 40px;
-  font-size: 4rem;
+  font-size: 2.5rem;
   color: #000;
   font-weight: bold;
+  font-family: 'Cinzel', serif;
 }
 
 .middle-left {
@@ -117,7 +129,7 @@
   }
 
   .top-left {
-    font-size: 2.2rem;
+    font-size: 2rem;
     top: 90px;
     left: 20px;
     right: 20px;
@@ -146,7 +158,7 @@
 
   .car {
     width: 100px;
-   bottom: 80px;
+    bottom: 80px;
   }
 
   .road {
@@ -190,8 +202,12 @@
 
   .car {
     width: 80px;
-     bottom: 70px;
+    bottom: 70px;
   }
+   .car {
+  filter: none;
+  background-color: #3B9CA5; /* Only if you're using an SVG or shape */
+}
 
   .road {
     height: 120px;

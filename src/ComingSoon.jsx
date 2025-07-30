@@ -15,8 +15,11 @@ const ComingSoon = () => {
         <img src="logo.png" alt="Viaridez Logo" className="logo" />
       </div>
 
-      {/* ✅ Top Left Text */}
-      <div className="top-left">Something's Moving...</div>
+      {/* ✅ Top Left Text - UPDATED */}
+      <div className="top-left">
+        Legacy on wheels finds new sands —
+        <br /> eastward ascent begins
+      </div>
 
       {/* ✅ Middle Message */}
       <div className="middle-left">
@@ -26,7 +29,7 @@ const ComingSoon = () => {
 
       {/* ✅ Top Right Text */}
       <div className="top-right">
-        <p className="text-line">just say we are on soon!</p>
+        <p className="text-line">we are on soon!</p>
       </div>
     </div>
   );
