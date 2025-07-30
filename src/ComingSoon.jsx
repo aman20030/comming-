@@ -4,6 +4,15 @@ import './ComingSoon.css';
 const ComingSoon = () => {
   return (
     <div className="container">
+      {/* ✅ LOGO ABOVE */}
+      <div className="logo-wrapper">
+        <img
+          src="logo.png"
+          alt="Viaridez Logo"
+          className="logo"
+        />
+      </div>
+
       <div className="top-left">#Coming Soon</div>
       <div className="middle-left">
         Stay tuned for exciting updates on fleet management!
