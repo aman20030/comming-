@@ -2,11 +2,54 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #fff;
   font-family: Arial, sans-serif;
   overflow: hidden;
   padding: 20px;
   box-sizing: border-box;
+  z-index: 2;
+}
+
+/* ✅ Road Animation as Background Layer */
+.road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 200px;
+  background: url('/road.png') repeat-x;
+  background-size: cover;
+  animation: roadMove 5s linear infinite;
+  z-index: 1;
+}
+
+@keyframes roadMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ✅ Car Image on Road */
+.car {
+  position: absolute;
+ bottom: calc(150px + 10px); /* ✅ car road ke upar properly baithi hai */
+  left: 50%;
+  transform: translateX(-50%) scaleX(-1); /* ✅ flipped */
+  width: 140px;
+  z-index: 2;
+}
+
+
+/* ✅ Foreground Content */
+.logo-wrapper,
+.top-left,
+.middle-left,
+.top-right {
+  position: relative;
+  z-index: 3;
 }
 
 /* === Logo Styling === */
@@ -14,7 +57,6 @@
   position: absolute;
   top: 20px;
   left: 40px;
-  z-index: 3;
 }
 
 .logo {
@@ -25,46 +67,45 @@
 /* === Text Sections === */
 .top-left {
   position: absolute;
-  top: 110px; /* shifted down to avoid overlap with logo */
+  top: 110px;
   left: 40px;
   font-size: 4rem;
-  color: white;
+  color: #000;
   font-weight: bold;
-  z-index: 2;
 }
 
 .middle-left {
   position: absolute;
   top: 240px;
   left: 40px;
-  font-size: 2.2rem;
-  color: white;
   max-width: 600px;
-  z-index: 2;
+  color: #000;
+}
+
+.middle-left .text-line {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 6px 0;
+  line-height: 1.5;
 }
 
 .top-right {
   position: absolute;
   top: 40px;
   right: 40px;
-  z-index: 2;
+  max-width: 350px;
+  text-align: right;
 }
 
-.text-3d {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 1px;
-  transform: perspective(500px) rotateY(15deg);
-  text-shadow:
-    1px 1px 0 #999,
-    2px 2px 0 #888,
-    3px 3px 0 #777,
-    4px 4px 0 #666,
-    5px 5px 0 #555;
+.top-right .text-line {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #000;
+  margin: 6px 0;
+  line-height: 1.4;
 }
 
-/* ✅ Mobile Responsive */
+/* ✅ Responsive */
 @media (max-width: 768px) {
   .logo-wrapper {
     top: 15px;
@@ -83,24 +124,33 @@
     word-break: break-word;
   }
 
-  .top-right {
-    top: 130px; /* increased to prevent overlap */
-    right: 20px;
-    text-align: right;
-  }
-
   .middle-left {
     top: 200px;
     left: 20px;
     right: 20px;
-    font-size: 1.4rem;
-    max-width: 100%;
-    word-break: break-word;
   }
 
-  .text-3d {
-    font-size: 1.8rem;
-    text-align: right;
+  .middle-left .text-line {
+    font-size: 1.3rem;
+  }
+
+  .top-right {
+    top: 130px;
+    right: 20px;
+    max-width: 100%;
+  }
+
+  .top-right .text-line {
+    font-size: 1.3rem;
+  }
+
+  .car {
+    width: 100px;
+   bottom: 80px;
+  }
+
+  .road {
+    height: 150px;
   }
 }
 
@@ -120,18 +170,30 @@
     left: 15px;
   }
 
-  .top-right {
-    top: 120px; /* increased to prevent overlap */
-    right: 15px;
-  }
-
   .middle-left {
     top: 170px;
     left: 15px;
-    font-size: 1.2rem;
   }
 
-  .text-3d {
-    font-size: 1.3rem;
+  .middle-left .text-line {
+    font-size: 1.1rem;
+  }
+
+  .top-right {
+    top: 120px;
+    right: 15px;
+  }
+
+  .top-right .text-line {
+    font-size: 1.1rem;
+  }
+
+  .car {
+    width: 80px;
+     bottom: 70px;
+  }
+
+  .road {
+    height: 120px;
   }
 }
